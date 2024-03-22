@@ -661,7 +661,15 @@ a {
 @media (max-width: 500px) {
     .dd {
         text-align: center;
-        justify-content: center;
+        justify-content: center !important;
+    }
+
+    .hg h1 {
+        text-align: center;
+    }
+
+    .hg ul {
+        text-align: center;
     }
 }
 

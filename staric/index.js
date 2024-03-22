@@ -231,7 +231,6 @@ fetchSheet
                     `<div class="main-content-tt3" id="${i}" index="${tab['Title']}"><h4 class="name-project items"><p style="text-align: justify">${tab['Content']}</p></h4></div >`
                 vam(`.main-content3[index='${f}'] .d551412a3-right__ctall`).innerHTML += Project
                 let g = document.querySelector(`.main-content-tt3[id='${i}']`).getAttribute('index')
-                console.log(g);
                 if (f == g) { }
                 else {
                     document.querySelector(`.main-content3[index='${f}'] .d551412a3-right__ctall .main-content-tt3[id='${i}']`).remove()
@@ -317,13 +316,30 @@ fetchSheet
         });
     });
 
+
+
+function X() {
+    vam('.Menu-nav').setAttribute('style', 'display:none')
+}
+fetchSheet
+    .fetch({
+        gSheetId: '12-_pddyvS1rRnIVN0uvm8WMhO3nPbckjTvkvv7Dj4jU',
+        wSheetName: 'bctq',
+    })
+    .then((rows) => {
+        let g = ''
+        vam('#iframevideo').src = rows[0]['video']
+        vam('#contentbctq').innerText = rows[0]['Content']
+        rows.forEach((tab) => {
+            g += `<img style="flex: 1; aspect-ratio: 1/1;object-fit: cover;width: 30%;"
+            src="${tab['Image']}" alt="">`
+        })
+        vam('.tongquan_image').innerHTML = g
+    });
+
 vam('.menu').onclick = () => {
     vam('.Menu-nav').setAttribute('style', 'display:flex')
 }
 vam('.bg').onclick = () => {
-    vam('.Menu-nav').setAttribute('style', 'display:none')
-}
-
-function X() {
     vam('.Menu-nav').setAttribute('style', 'display:none')
 }
